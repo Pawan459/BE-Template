@@ -104,7 +104,7 @@ const getUnPaidJobs = (req, res, next) => {
 			{
 				model: Contract,
 				where: {
-					status: { [Op.ne]: 'terminated' },
+					status: { [Op.eq]: 'in_progress' },
 					[Op.or]: [{ ContractorId: profile.id }, { ClientId: profile.id }],
 				},
 				attributes: {
